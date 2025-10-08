@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>La2 - Bai4 Danh sách sản phẩm phân trang</title>
 </head>
 <body>
-$END$
+<h3>Danh sách sản phẩm (p3):</h3>
+<ul>
+  <th:block th:each="item : ${p3}">
+    <li th:text="'Tên sản phẩm: ' + ${item.name}"></li>
+    <li th:text="'Giá sản phẩm: ' + ${item.price}"></li>
+  </th:block>
+</ul>
+
+<!-- Nút phân trang -->
+<div>
+  <!-- nút về trước -->
+  <a th:if="${currentPage > 0}"
+     th:href="@{/l2b4product/{size}/{page}(size=${pageSize}, page=${currentPage - 1})}">&lt;</a>
+
+  <span th:text="'Trang ' + (${currentPage} + 1) + '/' + ${totalPages}"></span>
+
+  <!-- nút kế tiếp -->
+  <a th:if="${currentPage < totalPages - 1}"
+     th:href="@{/l2b4product/{size}/{page}(size=${pageSize}, page=${currentPage + 1})}">&gt;</a>
+</div>
+
 </body>
 </html>

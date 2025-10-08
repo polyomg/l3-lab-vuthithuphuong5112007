@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Lab2-Bai3</title>
 </head>
 <body>
-$END$
+<form action="/l2b3product/l2b3save" method="post">
+  <input name="name" placeholder="Tên sản phẩm">
+  <input name="price" placeholder="Giá">
+  <button>Save</button>
+</form>
+
+<ul>
+  <li th:text=" 'Name: '+ ${product != null ? product.name : ''}">?name</li>
+  <li th:text=" 'Price: ' + ${product != null ? product.price : ''}">?price</li>
+</ul>
 </body>
 </html>
