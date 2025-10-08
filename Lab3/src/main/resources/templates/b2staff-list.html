@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab3-Bai2-Staff List</title>
+</head>
+<body>
+<div style="font-family: Arial; line-height: 2.5;">
+  <div th:each="staff, st : ${list}">
+    <img th:src="@{/{file}(file=${staff.photo})}" style="height:85px">
+    <b th:text="${st.count + '. '}"></b>
+    <b th:text="${#strings.capitalizeWords(staff.fullname)}"></b>,
+    $<b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
+    <th:block th:if="${!st.last}"><hr></th:block>
+  </div>
+</div>
+</body>
+</html>
