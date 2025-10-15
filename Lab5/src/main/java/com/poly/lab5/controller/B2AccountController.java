@@ -26,18 +26,18 @@ public class B2AccountController {
     }
     @PostMapping("/account/login")
     public String login2(Model model) {
-        // 1️⃣ Đọc tham số từ form bằng ParamService
+        //  Đọc tham số từ form bằng ParamService
         String username = paramService.getString("username", "");
         String password = paramService.getString("password", "");
         boolean remember = paramService.getBoolean("remember", false);
 
-        // 2️⃣ Kiểm tra đăng nhập (theo yêu cầu đề)
+        // Kiểm tra đăng nhập (theo yêu cầu đề)
         if (username.equals("poly") && password.equals("123")) {
 
-            // 3️⃣ Lưu username vào session
+            //  Lưu username vào session
             sessionService.set("username", username);
 
-            // 4️⃣ Xử lý ghi nhớ tài khoản
+            // Xử lý ghi nhớ tài khoản
             if (remember) {
                 // nhớ 10 ngày (10 * 24 = 240 giờ)
                 cookieService.add("user", username, 240);
