@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3-Bai5-Staff Controls</title>
+</head>
+<body style="font-family: Arial; line-height: 1.8;">
+
+<h2>Đổ dữ liệu ra SelectBox</h2>
+<select name="cbo">
+    <th:block th:each="staff : ${list}">
+        <option th:value="${staff.id}" th:text="${#strings.capitalizeWords(staff.fullname)}"></option>
+    </th:block>
+</select>
+
+<hr>
+
+<h2>Tạo Radio Button Group</h2>
+<th:block th:each="staff : ${list}">
+    <label>
+        <input type="radio" name="rdo" th:value="${staff.id}">
+        <th:block th:text="${#strings.capitalizeWords(staff.fullname)}"></th:block>
+    </label>
+    <br>
+</th:block>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Lab3-Bai5-Staff Controls</title>-->
+<!--</head>-->
+<!--<body style="font-family: Arial; line-height: 1.8;">-->
+
+<!--<h2>Đổ dữ liệu ra SelectBox</h2>-->
+<!--<select id="staffSelect" name="cbo">-->
+<!--    <th:block th:each="staff : ${list}">-->
+<!--        <option th:value="${staff.id}" th:text="${#strings.capitalizeWords(staff.fullname)}"></option>-->
+<!--    </th:block>-->
+<!--</select>-->
+
+<!--<hr>-->
+
+<!--<h2>Tạo Radio Button Group</h2>-->
+<!--<div id="radioGroup">-->
+<!--    <th:block th:each="staff : ${list}">-->
+<!--        <label>-->
+<!--            <input type="radio" name="rdo" th:value="${staff.id}">-->
+<!--            <th:block th:text="${#strings.capitalizeWords(staff.fullname)}"></th:block>-->
+<!--        </label>-->
+<!--        <br>-->
+<!--    </th:block>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    // Lấy select và các radio-->
+<!--    const select = document.getElementById('staffSelect');-->
+<!--    const radios = document.querySelectorAll('input[name="rdo"]');-->
+
+<!--    // Khi đổi select => chọn radio tương ứng-->
+<!--    select.addEventListener('change', function() {-->
+<!--        radios.forEach(r => r.checked = r.value === select.value);-->
+<!--    });-->
+
+<!--    // Khi chọn radio => cập nhật select-->
+<!--    radios.forEach(radio => {-->
+<!--        radio.addEventListener('change', function() {-->
+<!--            if (radio.checked) {-->
+<!--                select.value = radio.value;-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+

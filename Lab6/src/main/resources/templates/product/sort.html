@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3-Sorting</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+        }
+        th a {
+            text-decoration: none;
+            color: darkblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h3>SORTING BY <span th:text="${field}"></span></h3>
+
+<table>
+    <tr style="background-color: #d0e2ff;">
+        <th><a href="/product/sort?field=id">Id</a></th>
+        <th><a href="/product/sort?field=name">Name</a></th>
+        <th><a href="/product/sort?field=price">Price</a></th>
+        <th><a href="/product/sort?field=createDate">Date</a></th>
+    </tr>
+
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')} + ' ₫'"></td>
+        <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd')}"></td>
+    </tr>
+</table>
+</body>
+</html>

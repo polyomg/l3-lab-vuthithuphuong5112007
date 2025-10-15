@@ -1,0 +1,24 @@
+package com.poly.lab3.entity;
+
+import lombok.*;
+
+import java.util.Date;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
+public class B1Staff {
+    private String id;
+    private String fullname;
+    @Builder.Default
+    private String photo = "anhphuong.jpg";
+    @Builder.Default
+    private Boolean gender = true;
+    @Builder.Default
+    private Date birthday = new Date();
+    @Builder.Default
+    private Double salary = 12345.6789;
+    @Builder.Default
+    private Integer level = 0;
+}

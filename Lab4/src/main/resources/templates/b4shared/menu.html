@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="menu">
+    <a href="/home/index" th:text="#{menu.home}">Trang chủ</a> |
+    <a href="/home/about" th:text="#{menu.about}">Giới thiệu</a>
+
+    <!-- Ngôn ngữ -->
+    <div style="position: fixed; top: 5px; right: 10px;">
+        <a href="?lang=vi">Tiếng Việt</a> | <a href="?lang=en">English</a>
+    </div>
+</div>
+</body>
+</html>
