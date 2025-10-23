@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gửi Email</title>
+</head>
+<body>
+<h2>Gửi Email</h2>
+<form th:action="@{/mail/send}" method="post" enctype="multipart/form-data" th:object="${mail}">
+    From: <input type="text" th:field="*{from}" /><br/>
+    To: <input type="text" th:field="*{to}" /><br/>
+    CC: <input type="text" th:field="*{cc}" /><br/>
+    BCC: <input type="text" th:field="*{bcc}" /><br/>
+    Subject: <input type="text" th:field="*{subject}" /><br/>
+    Body:<br/>
+    <textarea th:field="*{body}" rows="6" cols="50"></textarea><br/>
+    File: <input type="file" th:field="*{attachments}" multiple /><br/><br/>
+    <button type="submit" name="action" value="send">Gửi Ngay</button>
+    <button type="submit" name="action" value="queue">Xếp Hàng Đợi</button>
+</form>
+</body>
+</html>

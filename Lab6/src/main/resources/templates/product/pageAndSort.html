@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai5-Pagination & Sorting</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #666;
+            padding: 8px;
+        }
+        a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+<h3>PAGINATION & SORTING BY [[${field}]]</h3>
+
+<table>
+    <tr style="background-color: #d0e8ff;">
+        <th><a th:href="@{|/product/pageAndSort?p=0&field=id|}">Id</a></th>
+        <th><a th:href="@{|/product/pageAndSort?p=0&field=name|}">Name</a></th>
+        <th><a th:href="@{|/product/pageAndSort?p=0&field=price|}">Price</a></th>
+        <th><a th:href="@{|/product/pageAndSort?p=0&field=createDate|}">Date</a></th>
+    </tr>
+
+    <th:block th:each="item : ${page.content}">
+        <tr>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}"></td>
+            <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd')}"></td>
+        </tr>
+    </th:block>
+</table>
+
+<div style="margin-top: 10px;">
+    <a th:href="@{|/product/pageAndSort?p=0&field=${field}|}">First</a>
+    <a th:href="@{|/product/pageAndSort?p=${page.number - 1}&field=${field}|}" th:if="${!page.first}">Previous</a>
+    <a th:href="@{|/product/pageAndSort?p=${page.number + 1}&field=${field}|}" th:if="${!page.last}">Next</a>
+    <a th:href="@{|/product/pageAndSort?p=${page.totalPages - 1}&field=${field}|}">Last</a>
+</div>
+
+<ul>
+    <li>Trang hiện tại: [[${page.number + 1}]] / [[${page.totalPages}]]</li>
+    <li>Tổng sản phẩm: [[${page.totalElements}]]</li>
+</ul>
+
+</body>
+</html>

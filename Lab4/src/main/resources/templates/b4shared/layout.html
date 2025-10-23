@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="view(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${title}">Default Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        article {
+            padding: 20px;
+            background-color: white;
+            width: 80%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1 th:text="#{header.name}">Online Shopping</h1>
+</header>
+
+<!-- Menu -->
+<nav th:replace="~{b4shared/menu :: menu}"></nav>
+
+<!-- Nội dung động -->
+<article th:replace="${content}">Default Content</article>
+
+<!-- Footer -->
+<footer>
+    <hr>
+    <th:block th:utext="#{footer.copy}">
+        &copy; 2025 FPT Polytechnic. All rights reserved.
+    </th:block>
+</footer>
+</body>
+</html>
