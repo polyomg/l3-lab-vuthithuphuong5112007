@@ -17,9 +17,8 @@
         <module name="Lab4" />
         <module name="Lab5" />
         <module name="Lab6" />
-        <module name="Lab8" />
       </profile>
-      <profile name="Annotation profile for Lab7" enabled="true">
+      <profile name="Annotation profile for Lab8" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -27,6 +26,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="Lab7" />
+        <module name="Lab8" />
       </profile>
     </annotationProcessing>
   </component>

@@ -62,7 +62,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${items}">
+            <tr th:each="item: ${items}">
                 <td th:text="${item.id}"></td>
                 <td th:text="${item.name}"></td>
                 <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')} + ' ₫'"></td>
